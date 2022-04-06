@@ -29,9 +29,6 @@
       ],
       "verticalOrigin":"BOTTOM"
     },
-    "orientation":{
-      "velocityReference": "#position"
-    },
     "label":{
       "fillColor":[
         {
