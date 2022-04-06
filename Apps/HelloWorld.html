@@ -58,8 +58,10 @@
                     }
                   }
                 ]
-      var viewer = new Cesium.Viewer('cesiumContainer');
-      const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings()); 
+      var viewer = new Cesium.Viewer("cesiumContainer", {
+                  shouldAnimate: true,
+                  });
+//       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings()); 
       viewer.dataSources.add(Cesium.CzmlDataSource.load("../SampleData/simple.czml"));
     </script>
   </body>
