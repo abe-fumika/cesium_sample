@@ -28,39 +28,9 @@
   <body>
     <div id="cesiumContainer"></div>
     <script>
-      var czml = [
-                  {
-                    id: "document",
-                    version: "1.0"
-                  },
-                  {
-                    id: "Vehicle2",
-                    description : "This is a missile",
-                    availability: "2012-08-04T16:01:00Z/2012-08-04T16:02:00Z",
-                    model:{
-                      gltf:"https://cesium.com/public/SandcastleSampleData/launchvehicle.glb"
-                    },
-                    orientation:{
-                      velocityReference: "#position"
-                    },
-                    position:{
-                      epoch:"2012-08-04T16:01:00Z",
-                      cartographicDegrees:[
-                        0,
-                        130.36212,
-                        33.59531,
-                        90.0,
-                        1,
-                        130.35147,
-                        33.59329,
-                        160.0,
-                      ],
-                    }
-                  }
-                ]
       var viewer = new Cesium.Viewer('cesiumContainer');
       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings()); 
-      viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
+      viewer.dataSources.add(Cesium.CzmlDataSource.load("./sample_abe.czml"));
     </script>
   </body>
 </html>
