@@ -29,108 +29,35 @@
     <div id="cesiumContainer"></div>
     <script>
       var czml = [
-  {
-    id: "document",
-    version: "1.0"
-  },
-  {
-    id: "Vehicle",
-    description : "This is a bus",
-    availability: "2012-08-04T16:00:00Z/2012-08-04T16:01:00Z",
-    model:{
-      gltf: "data:application/octet-stream;base64,Z2xURgIAAADoCAAAhAUAAEpTT057ImFzc2V0Ijp7ImdlbmVyYXRvciI6Iktocm9ub3MgZ2xURiBCbGVuZGVyIEkvTyB2MS4yLjc1IiwidmVyc2lvbiI6IjIuMCJ9LCJzY2VuZSI6MCwic2NlbmVzIjpbeyJuYW1lIjoiU2NlbmUiLCJub2RlcyI6WzAsMSwyXX1dLCJub2RlcyI6W3sibWVzaCI6MCwibmFtZSI6IkN1YmUifSx7Im5hbWUiOiJMaWdodCIsInJvdGF0aW9uIjpbMC4xNjkwNzU3NTcyNjUwOTA5NCwwLjc1NTg4MDM1NTgzNDk2MDksLTAuMjcyMTcxMzc4MTM1NjgxMTUsMC41NzA5NDc1Mjc4ODU0MzddLCJ0cmFuc2xhdGlvbiI6WzQuMDc2MjQ1MzA3OTIyMzYzLDUuOTAzODYxOTk5NTExNzE5LC0xLjAwNTQ1Mzk0NDIwNjIzNzhdfSx7Im5hbWUiOiJDYW1lcmEiLCJyb3RhdGlvbiI6WzAuNDgzNTM2MDM0ODIyNDY0LDAuMzM2ODcxNTk0MTkwNTk3NTMsLTAuMjA4NzAzNjA3MzIwNzg1NTIsMC43ODA0ODI3MDk0MDc4MDY0XSwidHJhbnNsYXRpb24iOls3LjM1ODg5MTQ4NzEyMTU4Miw0Ljk1ODMwOTE3MzU4Mzk4NCw2LjkyNTc5MDc4Njc0MzE2NF19XSwibWF0ZXJpYWxzIjpbeyJkb3VibGVTaWRlZCI6dHJ1ZSwiZW1pc3NpdmVGYWN0b3IiOlswLDAsMF0sIm5hbWUiOiJNYXRlcmlhbCIsInBick1ldGFsbGljUm91Z2huZXNzIjp7ImJhc2VDb2xvckZhY3RvciI6WzAuODAwMDAwMDExOTIwOTI5LDAuODAwMDAwMDExOTIwOTI5LDAuODAwMDAwMDExOTIwOTI5LDFdLCJtZXRhbGxpY0ZhY3RvciI6MCwicm91Z2huZXNzRmFjdG9yIjowLjQwMDAwMDAwNTk2MDQ2NDV9fV0sIm1lc2hlcyI6W3sibmFtZSI6IkN1YmUiLCJwcmltaXRpdmVzIjpbeyJhdHRyaWJ1dGVzIjp7IlBPU0lUSU9OIjowLCJOT1JNQUwiOjEsIlRFWENPT1JEXzAiOjJ9LCJpbmRpY2VzIjozLCJtYXRlcmlhbCI6MH1dfV0sImFjY2Vzc29ycyI6W3siYnVmZmVyVmlldyI6MCwiY29tcG9uZW50VHlwZSI6NTEyNiwiY291bnQiOjI0LCJtYXgiOlsxLDEsMV0sIm1pbiI6Wy0xLC0xLC0xXSwidHlwZSI6IlZFQzMifSx7ImJ1ZmZlclZpZXciOjEsImNvbXBvbmVudFR5cGUiOjUxMjYsImNvdW50IjoyNCwidHlwZSI6IlZFQzMifSx7ImJ1ZmZlclZpZXciOjIsImNvbXBvbmVudFR5cGUiOjUxMjYsImNvdW50IjoyNCwidHlwZSI6IlZFQzIifSx7ImJ1ZmZlclZpZXciOjMsImNvbXBvbmVudFR5cGUiOjUxMjMsImNvdW50IjozNiwidHlwZSI6IlNDQUxBUiJ9XSwiYnVmZmVyVmlld3MiOlt7ImJ1ZmZlciI6MCwiYnl0ZUxlbmd0aCI6Mjg4LCJieXRlT2Zmc2V0IjowfSx7ImJ1ZmZlciI6MCwiYnl0ZUxlbmd0aCI6Mjg4LCJieXRlT2Zmc2V0IjoyODh9LHsiYnVmZmVyIjowLCJieXRlTGVuZ3RoIjoxOTIsImJ5dGVPZmZzZXQiOjU3Nn0seyJidWZmZXIiOjAsImJ5dGVMZW5ndGgiOjcyLCJieXRlT2Zmc2V0Ijo3Njh9XSwiYnVmZmVycyI6W3siYnl0ZUxlbmd0aCI6ODQwfV19IEgDAABCSU4AAACAPwAAgD8AAIA/AACAPwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgL8AAIA/AACAPwAAgL8AAIA/AACAPwAAgD8AAIA/AACAvwAAgD8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIA/AACAvwAAgD8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgL8AAIA/AACAPwAAgD8AAIA/AACAPwAAgL8AAIA/AACAPwAAgL8AAIC/AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgD8AAIC/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAgL8AAACAAAAAAAAAgL8AAACAAAAAAAAAgL8AAACAAAAAAAAAgL8AAACAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAgPwAAgD4AACA/AAAAPwAAYD8AAAA/AABgPwAAgD4AACA/AAAAAAAAwD4AAAAAAADAPgAAgD4AACA/AACAPgAAID8AAEA/AADAPgAAQD8AAMA+AACAPwAAID8AAIA/AAAAPgAAgD4AAAA+AAAAPwAAwD4AAAA/AADAPgAAgD4AACA/AACAPgAAwD4AAIA+AADAPgAAAD8AACA/AAAAPwAAID8AAAA/AADAPgAAAD8AAMA+AABAPwAAID8AAEA/AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"
-    },
-    orientation:{
-      velocityReference: "#position"
-    },
-    position:{
-      epoch:"2012-08-04T16:00:00Z",
-      cartographicDegrees:[
-        0,
-        130.363492,
-        33.591336,
-        35.0,
-        1,
-        130.363326,
-        33.591521,
-        35.0,
-        2,
-        130.363113,
-        33.591819,
-        35.0,
-        3,
-        130.362912,
-        33.592087,
-        35.0,
-        4,
-        130.362579,
-        33.592555,
-        35.0,
-        5,
-        130.362107,
-        33.593210,
-        35.0,
-        6,
-        130.362125,
-        33.592179,
-        50.0,
-        7,
-        130.36202,
-        33.59211,
-        80.0,      
-      ],
-    },
-  },
-  
-  {
-    id: "Vehicle2",
-    description : "This is a missile",
-    availability: "2012-08-04T16:01:00Z/2012-08-04T16:02:00Z",
-    model:{
-      gltf:"https://cesium.com/public/SandcastleSampleData/launchvehicle.glb"
-    },
-    orientation:{
-      velocityReference: "#position"
-    },
-    position:{
-      epoch:"2012-08-04T16:01:00Z",
-      cartographicDegrees:[
-        0,
-        130.363492,
-        33.591336,
-        35.0,
-        1,
-        130.363326,
-        33.591521,
-        35.0,
-        2,
-        130.363113,
-        33.591819,
-        35.0,
-        3,
-        130.362912,
-        33.592087,
-        35.0,
-        4,
-        130.362579,
-        33.592555,
-        35.0,
-        5,
-        130.362107,
-        33.593210,
-        35.0,
-        6,
-        130.362125,
-        33.592179,
-        50.0,
-        7,
-        130.36202,
-        33.59211,
-        80.0,      
-      ],
-    }
-  }
-]
+                  {
+                    id: "document",
+                    version: "1.0"
+                  },
+                  {
+                    id: "Vehicle2",
+                    description : "This is a missile",
+                    availability: "2012-08-04T16:01:00Z/2012-08-04T16:02:00Z",
+                    model:{
+                      gltf:"https://cesium.com/public/SandcastleSampleData/launchvehicle.glb"
+                    },
+                    orientation:{
+                      velocityReference: "#position"
+                    },
+                    position:{
+                      epoch:"2012-08-04T16:01:00Z",
+                      cartographicDegrees:[
+                        0,
+                        130.36212,
+                        33.59531,
+                        35.0,
+                        1,
+                        130.35147,
+                        33.59329,
+                        35.0,
+                      ],
+                    }
+                  }
+                ]
       var viewer = new Cesium.Viewer('cesiumContainer');
       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings()); 
       viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
