@@ -58,9 +58,10 @@
                     }
                   }
                 ]
-      var viewer = new Cesium.Viewer("cesiumContainer", {
-                  shouldAnimate: true,
-                  });
+      var viewer = new Cesium.Viewer("cesiumContainer");
+//       var viewer = new Cesium.Viewer("cesiumContainer", {
+//                   shouldAnimate: true,
+//                   });
 //       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings()); 
       viewer.dataSources.add(Cesium.CzmlDataSource.load("./SampleData/Vehicle.czml"));
     </script>
