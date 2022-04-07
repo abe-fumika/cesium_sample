@@ -103,8 +103,8 @@
       viewer.canvas.addEventListener('contextmenu', function(e){ // right click
         const difftime = performance.now() - mousedown_time;
         if(difftime <= 1000) {
-//           var mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
-          var mousePosition = new Cesium.Cartesian3(e.clientX, e.clientY, e.clientZ);
+          var mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
+//           var mousePosition = new Cesium.Cartesian3(e.clientX, e.clientY, e.clientZ);
 
           var ellipsoid = viewer.scene.globe.ellipsoid; // Gets an ellipsoid describing the shape of this globe.
           var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
@@ -112,7 +112,7 @@
               var cartographic = ellipsoid.cartesianToCartographic(cartesian);
               longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
               latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
-              heightString = Cesium.Math.toDegrees(cartographic.height).toFixed(2);
+              heightString = Cesium.Math.toDegrees(cartographic.height).toFixed(2); // 	0.0	optionalThe height, in meters, above the ellipsoid.
               console.log(`cartographic=${cartographic}`);
               console.log(`heightString=${heightString}`);
 
