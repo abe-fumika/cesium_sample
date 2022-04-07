@@ -62,7 +62,27 @@
 //       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
 //       viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
 //       viewer.dataSources.add(Cesium.CzmlDataSource.load("./SampleData/Vehicle.czml"));
-      viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
+      viewer.dataSources.add(Cesium.CzmlDataSource.load("./SampleData/abe.czml"));
+//       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
+      /*
+      * マウス移動のイベントリスナーを設置
+      */
+      var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+      handler.setInputAction(
+          function(movement) {
+              var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, viewer.scene.globe.ellipsoid);
+              //マウスが地球上にあることを判定
+              if (cartesian) {
+                  //位置情報を管理するオブジェクトcartographicを取得
+                  var cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+                  //緯度経度を小数点5桁で取得
+                  var lon = Cesium.Math.toDegrees(cartographic.longitude).toFixed(5);
+                  var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(5);
+
+
+              }
+          }, Cesium.ScreenSpaceEventType.MOUSE_MOVE
+      );
     </script>
   </body>
 </html>
