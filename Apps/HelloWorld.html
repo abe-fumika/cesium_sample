@@ -43,7 +43,7 @@
   <body>
     <div id="cesiumContainer"></div>
     <div id="contextmenu" class="contextmenu"> 
-        <li onclick="menu1()">menu1</li>
+        <li onclick="menu1()"></li>
     </div>
 
     <script>
@@ -103,17 +103,6 @@
               function menu1(){
                   alert(longitudeString + ', ' + latitudeString);
               }
-//               var entities = viewer.entities;
-//               var boxes = entities.add(new Cesium.Entity());
-//               entities.add({
-//               parent : boxes,
-//               name : 'sample',
-//                 rectangle : {
-//                   coordinates : Cesium.Rectangle.fromDegrees(longitudeString, latitudeString, longitudeString,  latitudeString),
-//                   material : './SampleData/cesium_stripes.png'
-//               }
-//               });
-//               boxes.show = boxes.show;
           } else {
               alert('Globe was not picked');
           }
