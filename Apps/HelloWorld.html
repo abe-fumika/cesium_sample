@@ -144,7 +144,7 @@
                     "id" : "1",
                     "description" : "点の作成",
                     "position" : {
-                      "cartographicDegrees": [longitudeString,latitudeString,0]
+                      "cartographicDegrees": [longitudeString,latitudeString,heightString]
                     },
                     "point": {
                        "color": {
@@ -157,7 +157,6 @@
       
       function menu2(){
         viewer.dataSources.add(Cesium.CzmlDataSource.load(czml2));
-        viewer.zoomTo(viewer.czml2);
         con.classList.remove('show');
       }
 
