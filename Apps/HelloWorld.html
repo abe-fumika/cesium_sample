@@ -65,6 +65,13 @@
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
       var entities = viewer.entities;
+      var boxes = entities.add(new Cesium.Entity());
+      entities.add({
+      parent : boxes,
+      name : 'sample',
+      
+      });
+
       const viewer1 = new Cesium.Viewer('cesiumContainer', {
         imageryProvider: new Cesium.UrlTemplateImageryProvider({
           url : 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg'
