@@ -112,8 +112,9 @@
               var cartographic = ellipsoid.cartesianToCartographic(cartesian);
               longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
               latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
-              heightString = cartographic.height;
-              console.log('cartographic=${cartographic}');
+              heightString = Cesium.Math.toDegrees(cartographic.height).toFixed(2);
+              console.log(`cartographic=${cartographic}`);
+              console.log(`heightString=${heightString}`);
 
 //               alert(longitudeString + ', ' + latitudeString); 
               con.style.left = e.pageX + 'px';
