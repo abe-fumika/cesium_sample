@@ -64,8 +64,8 @@
 //       viewer.dataSources.add(Cesium.CzmlDataSource.load("./SampleData/Vehicle.czml"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
-//       viewer.canvas.addEventListener('click', function(e){
-      viewer.canvas.addEventListener('contextmenu', function(e){
+//       viewer.canvas.addEventListener('click', function(e){ // left click
+      viewer.canvas.addEventListener('contextmenu', function(e){ // right click
           var mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
 //           var mousePosition = new Cesium.Cartesian3(e.clientX, e.clientY, e.clientZ);
 
