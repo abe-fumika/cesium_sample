@@ -43,7 +43,8 @@
   <body>
     <div id="cesiumContainer"></div>
     <div id="contextmenu" class="contextmenu"> 
-        <li onclick="menu1()"></li>
+        <li onclick="menu1()">menu1</li>
+        <li onclick="menu2()">menu2</li>
     </div>
 
     <script>
@@ -108,6 +109,9 @@
           }
 
       }, false);
+      function menu2(){
+          alert('メニュー2押した');
+      }
 
 //       var entities = viewer.entities;
 //       var boxes = entities.add(new Cesium.Entity());
