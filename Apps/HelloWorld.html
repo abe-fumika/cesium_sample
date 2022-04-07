@@ -69,19 +69,22 @@
 //       entities.add({
 //       parent : boxes,
 //       name : 'sample',
-      
-//       });
+        rectangle : {
+          coordinates : Cesium.Rectangle.fromDegrees(138.580963, 34.817305, 141.345030,  36.239179),
+          material : '.jpg'
+      }
+      });
 
-      const viewer = new Cesium.Viewer('cesiumContainer', {
-        imageryProvider: new Cesium.UrlTemplateImageryProvider({
-          url : 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
-          credit : new Cesium.Credit('<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>', true)
-        })
-      });
-      //const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
-      document.getElementsByTagName('canvas')[0].addEventListener('contextmenu',function (e){
-        console.log(e)
-      });
+//       const viewer = new Cesium.Viewer('cesiumContainer', {
+//         imageryProvider: new Cesium.UrlTemplateImageryProvider({
+//           url : 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
+//           credit : new Cesium.Credit('<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>', true)
+//         })
+//       });
+//       //const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
+//       document.getElementsByTagName('canvas')[0].addEventListener('contextmenu',function (e){
+//         console.log(e)
+//       });
     </script>
   </body>
 </html>
