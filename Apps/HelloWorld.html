@@ -137,24 +137,19 @@
                     version: "1.0"
                   },
                   {
-                    id: "Vehicle2",
-                    description : "This is a missile",
-                    model:{
-                      gltf:"https://cesium.com/public/SandcastleSampleData/launchvehicle.glb"
+                    "id" : "1",
+                    "description" : "点の作成",
+                    "position" : {
+                      "cartographicDegrees": [longitudeString,latitudeString,100]
                     },
-                    orientation:{
-                      velocityReference: "#position"
-                    },
-                    position:{
-                      cartographicDegrees:[
-                        0,
-                        longitudeString,
-                        latitudeString,
-                        100.0, 
-                      ],
-                    }
-                  }
-                ]
+                    "point": {
+                       "color": {
+                           "rgba": [255, 0, 0, 255]
+                       },
+                       "pixelSize": 20
+                     }
+                   }
+                  ]
       
       function menu2(){
         viewer.dataSources.add(Cesium.CzmlDataSource.load(czml2));
