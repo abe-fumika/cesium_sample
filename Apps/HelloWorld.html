@@ -24,6 +24,17 @@
         overflow: hidden;
       }
       
+      #contextmenu {
+        display:none;
+        position:fixed;
+        left:0px;
+        top:0px;
+        widows: 150px;
+        height:100px;
+        background-color:#f0f0f0;
+        border:1px solid #eee;
+      }
+
       #contextmenu.show {
         display: block;
       }
@@ -88,7 +99,7 @@
               var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
               var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
 
-              alert(longitudeString + ', ' + latitudeString);
+//               alert(longitudeString + ', ' + latitudeString);
               let con = document.getElementById('contextmenu');  
               con.style.left = e.pageX + 'px';
               con.style.top = e.pageY + 'px';
