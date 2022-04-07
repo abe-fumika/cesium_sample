@@ -98,6 +98,7 @@
       let con = document.getElementById('contextmenu'); 
       var longitudeString = 0;
       var latitudeString = 0;
+      var heightString = 0;
       
       viewer.canvas.addEventListener('contextmenu', function(e){ // right click
         const difftime = performance.now() - mousedown_time;
@@ -111,6 +112,7 @@
               var cartographic = ellipsoid.cartesianToCartographic(cartesian);
               longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
               latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
+              heightString = cartographic.height;
 
 //               alert(longitudeString + ', ' + latitudeString); 
               con.style.left = e.pageX + 'px';
@@ -127,7 +129,7 @@
       }, false);
       
       function menu1(){
-        alert(longitudeString + ', ' + latitudeString); 
+        alert(longitudeString + ', ' + latitudeString + ', ' + heightString); 
         con.classList.remove('show');
       }
       
