@@ -130,8 +130,34 @@
         alert(longitudeString + ', ' + latitudeString); 
         con.classList.remove('show');
       }
+      
+      var czml2 = [
+                  {
+                    id: "document",
+                    version: "1.0"
+                  },
+                  {
+                    id: "Vehicle2",
+                    description : "This is a missile",
+                    model:{
+                      gltf:"https://cesium.com/public/SandcastleSampleData/launchvehicle.glb"
+                    },
+                    orientation:{
+                      velocityReference: "#position"
+                    },
+                    position:{
+                      cartographicDegrees:[
+                        0,
+                        longitudeString,
+                        latitudeString,
+                        100.0, 
+                      ],
+                    }
+                  }
+                ]
+      
       function menu2(){
-        alert('メニュー2押した');
+        viewer.dataSources.add(Cesium.CzmlDataSource.load(czml2));
         con.classList.remove('show');
       }
 
