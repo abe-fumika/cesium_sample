@@ -75,6 +75,16 @@
               var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
 
               alert(longitudeString + ', ' + latitudeString);
+              var entities = viewer.entities;
+              var boxes = entities.add(new Cesium.Entity());
+              entities.add({
+              parent : boxes,
+              name : 'sample',
+                rectangle : {
+                  coordinates : Cesium.Rectangle.fromDegrees(longitudeString, latitudeString, longitudeString,  latitudeString),
+                  material : './SampleData/cesium_stripes.png'
+              }
+              });
           } else {
               alert('Globe was not picked');
           }
