@@ -64,10 +64,12 @@
 //       viewer.dataSources.add(Cesium.CzmlDataSource.load("./SampleData/Vehicle.czml"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
-      viewer.canvas.addEventListener('click', function(e){
+//       viewer.canvas.addEventListener('click', function(e){
+      viewer.canvas.addEventListener('contextmenu', function(e){
           var mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
+//           var mousePosition = new Cesium.Cartesian3(e.clientX, e.clientY, e.clientZ);
 
-          var ellipsoid = viewer.scene.globe.ellipsoid;
+          var ellipsoid = viewer.scene.globe.ellipsoid; // Gets an ellipsoid describing the shape of this globe.
           var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
           if (cartesian) {
               var cartographic = ellipsoid.cartesianToCartographic(cartesian);
