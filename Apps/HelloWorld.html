@@ -157,6 +157,7 @@
       
       function menu2(){
         viewer.entities.add(Cesium.CzmlDataSource.load(czml2));
+        viewer.zoomTo(viewer.entities);
         con.classList.remove('show');
       }
 
