@@ -100,6 +100,9 @@
               con.style.left = e.pageX + 'px';
               con.style.top = e.pageY + 'px';
               con.classList.add('show');
+              function menu1(){
+                  alert(longitudeString + ', ' + latitudeString);
+              }
 //               var entities = viewer.entities;
 //               var boxes = entities.add(new Cesium.Entity());
 //               entities.add({
@@ -116,9 +119,6 @@
           }
 
       }, false);
-      function menu1(){
-        alert(longitudeString + ', ' + latitudeString);
-    }
 
 //       var entities = viewer.entities;
 //       var boxes = entities.add(new Cesium.Entity());
