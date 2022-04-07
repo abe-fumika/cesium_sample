@@ -96,6 +96,9 @@
       }, false);    
       
       let con = document.getElementById('contextmenu'); 
+      var longitudeString = 0;
+      var latitudeString = 0;
+      
       viewer.canvas.addEventListener('contextmenu', function(e){ // right click
         const difftime = performance.now() - mousedown_time;
         if(difftime <= 1000) {
@@ -106,8 +109,8 @@
           var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
           if (cartesian) {
               var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-              var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
-              var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
+              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
+              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
 
 //               alert(longitudeString + ', ' + latitudeString); 
               con.style.left = e.pageX + 'px';
@@ -123,6 +126,9 @@
         con.classList.remove('show');
       }, false);
       
+      function menu1(){
+          alert(longitudeString + ', ' + latitudeString); 
+      }
       function menu2(){
           alert('メニュー2押した');
       }
