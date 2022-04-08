@@ -47,7 +47,7 @@
     <div id="contextmenu" class="contextmenu"> 
         <input type="button" value="経度緯度高さ" onclick="menu1()">
         <input type="button" value="点字ブロック設置" onclick="menu2()">
-        <input type="button" value="点字ブロック撤去" onclick="menu3()">
+<!--         <input type="button" value="点字ブロック撤去" onclick="menu3()"> -->
     </div>
     
     
@@ -184,10 +184,10 @@
         // 画像撤去
         handler.setInputAction(
             function(rightclick) {
-                con.classList.remove('show'); // コンテキストメニュー非表示
                 var pickedObject = scene.pick(rightclick.position);
                 if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
                     viewer.entities.remove(entity);
+                  　con.classList.remove('show'); // コンテキストメニュー非表示
                 }
             },
             Cesium.ScreenSpaceEventType.RIGHT_CLICK  //右ボタンクリックイベント
