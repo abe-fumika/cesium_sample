@@ -145,18 +145,19 @@
 
         var scene = viewer.scene;
         var dragging = false;
-        var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas); //マウス移動のイベントリスナーを設置
+        var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas); //画像移動のイベントリスナーを設置
         handler.setInputAction(
             function(click) {
                 var pickedObject = scene.pick(click.position);
+                console.log(`pickedObject=${pickedObject}`);
                 if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
                     dragging = true;
-                    scene.screenSpaceCameraController.enableRotate = false;
-                    Cesium.Cartesian2.clone(click.position, mousePosition);
-                    entity.position = mousePositionProperty;
+                    scene.screenSpaceCameraController.enableRotate = false; //trueの場合、ユーザーがワールドを回転できるようにします　false回転禁止
+                    Cesium.Cartesian2.clone(click.position, mousePosition); //複製
+                    entity.position = mousePositionProperty; //画像の位置はマウス移動の位置
                 }
             },
-            Cesium.ScreenSpaceEventType.LEFT_DOWN
+            Cesium.ScreenSpaceEventType.LEFT_DOWN //左ボタンダウンイベント
         );
 
         handler.setInputAction(
@@ -165,7 +166,7 @@
                     Cesium.Cartesian2.clone(movement.endPosition, mousePosition);
                 }
             },
-            Cesium.ScreenSpaceEventType.MOUSE_MOVE
+            Cesium.ScreenSpaceEventType.MOUSE_MOVE //マウス移動のイベント
         );
 
 
@@ -177,9 +178,9 @@
                   entity.position = scene.camera.pickEllipsoid(click.position);
                 }
             },
-            Cesium.ScreenSpaceEventType.LEFT_UP
+            Cesium.ScreenSpaceEventType.LEFT_UP //左ボタンアップイベント
         );
-      } //ダブルクリックすると画像視点？になる
+      } //ダブルクリックすると画像視点になる?
       
 
               
