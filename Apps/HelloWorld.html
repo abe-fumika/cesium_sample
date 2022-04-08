@@ -134,12 +134,11 @@
         var mousePositionProperty = new Cesium.CallbackProperty(function(time, result){ //値がコールバック関数によって遅延評価されるプロパティ。
             var position = scene.camera.pickEllipsoid(mousePosition, undefined, result);
             console.log(`position=${position}`);
-//             var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);
-            var cartographic = Cesium.Ellipsoid.cartesianToCartographic(position);
+            var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);
+//             var cartographic = Cesium.Ellipsoid.cartesianToCartographic(position); //×
             console.log(`cartographic=${cartographic}`);
             cartographic.height = 300000.0;
-//             return Cesium.Ellipsoid.WGS84.cartographicToCartesian(cartographic);
-            return Cesium.Ellipsoid.cartographicToCartesian(cartographic);
+            return Cesium.Ellipsoid.WGS84.cartographicToCartesian(cartographic);
         }, false);
 
         var scene = viewer.scene;
