@@ -121,12 +121,14 @@
         con.classList.remove('show');
       } //ダブルクリックすると画像視点？になる
       
-      //  左クリック押下→画像90度回転
+      //  右クリック押下→画像90度回転
       var d = 0;
       const e = document.getElementById("img1");
-      e.click = function () { // left click
+      e.oncontextmenu = function () { // right click
          d = d + 90;
          e.style.transform = "rotate(" + d + "deg)";
+         // メニューが出るのを阻止
+         return false;
       }
         
       
