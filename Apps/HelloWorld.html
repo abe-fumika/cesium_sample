@@ -50,11 +50,8 @@
     </div>
     
     <!-- 画像回転 -->
-    <img id="img1" src="./SampleData/cesium_stripes.png" /><br>
-    <input type="button" value="右へ90度回転" onclick="kaiten(90);">
-<!--     <input type="button" value="左へ90度回転" onclick="kaiten(-90);">
-    <input type="button" value="180度回転" onclick="kaiten(180);">
- -->
+    <img id="img1" src="./SampleData/cesium_stripes.png" />
+    
     <script>
       var viewer = new Cesium.Viewer("cesiumContainer");
 //       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
@@ -124,13 +121,14 @@
         con.classList.remove('show');
       }
       
-      // 画像回転
+      //  左クリック押下→画像90度回転
       var d = 0;
-      function kaiten(x){
-        var e = document.getElementById("img1");
-        d = d + x;
-        e.style.transform = "rotate(" + d + "deg)";
+      const e = document.getElementById("img1");
+      e.click = function () { // left click
+         d = d + 90;
+         e.style.transform = "rotate(" + d + "deg)";
       }
+        
       
     </script>
   </body>
