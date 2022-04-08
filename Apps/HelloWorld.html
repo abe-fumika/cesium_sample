@@ -51,53 +51,53 @@
     
     
     <script>
-//       var viewer = new Cesium.Viewer("cesiumContainer");
+      var viewer = new Cesium.Viewer("cesiumContainer");
 //       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
 //       viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
 //       viewer.dataSources.add(Cesium.CzmlDataSource.load("./SampleData/Vehicle.czml"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
       
-//       let con = document.getElementById('contextmenu'); 
-//       var longitudeString = 0;
-//       var latitudeString = 0;
-//       var heightString = 0;
+      let con = document.getElementById('contextmenu'); 
+      var longitudeString = 0;
+      var latitudeString = 0;
+      var heightString = 0;
       
-//       // 地球上で右クリック押下→コンテキストメニュー表示
-//       viewer.canvas.addEventListener('contextmenu', function(e){ // right click
-//           var mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
-//           var ellipsoid = viewer.scene.globe.ellipsoid; // Gets an ellipsoid describing the shape of this globe.
-//           var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
-//           if (cartesian) {
-//               var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-//               longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
-//               latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
-//               heightString = Cesium.Math.toDegrees(cartographic.height).toFixed(2); // 	0.0	optionalThe height, in meters, above the ellipsoid.
-//               console.log(`cartographic=${cartographic}`);
-//               console.log(`heightString=${heightString}`);
+      // 地球上で右クリック押下→コンテキストメニュー表示
+      viewer.canvas.addEventListener('contextmenu', function(e){ // right click
+          var mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
+          var ellipsoid = viewer.scene.globe.ellipsoid; // Gets an ellipsoid describing the shape of this globe.
+          var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
+          if (cartesian) {
+              var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
+              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
+              heightString = Cesium.Math.toDegrees(cartographic.height).toFixed(2); // 	0.0	optionalThe height, in meters, above the ellipsoid.
+              console.log(`cartographic=${cartographic}`);
+              console.log(`heightString=${heightString}`);
 
-// //               alert(longitudeString + ', ' + latitudeString); 
-//               con.style.left = e.pageX + 'px';
-//               con.style.top = e.pageY + 'px';
-//               con.classList.add('show');
-//           } else {
-//               alert('Globe was not picked');
-//           }
-//       }, false);
+//               alert(longitudeString + ', ' + latitudeString); 
+              con.style.left = e.pageX + 'px';
+              con.style.top = e.pageY + 'px';
+              con.classList.add('show');
+          } else {
+              alert('Globe was not picked');
+          }
+      }, false);
       
-//       // 左クリック押下→コンテキストメニュー非表示
-//       viewer.canvas.addEventListener('click', function(e){ // left click
-//         con.classList.remove('show');
-//       }, false);
+      // 左クリック押下→コンテキストメニュー非表示
+      viewer.canvas.addEventListener('click', function(e){ // left click
+        con.classList.remove('show');
+      }, false);
       
-//       // メニュー1押下→経度緯度高さ情報表示
-//       function menu1(){
-//         alert(longitudeString + ', ' + latitudeString + ', ' + heightString); 
-//         con.classList.remove('show');
-//       }
+      // メニュー1押下→経度緯度高さ情報表示
+      function menu1(){
+        alert(longitudeString + ', ' + latitudeString + ', ' + heightString); 
+        con.classList.remove('show');
+      }
       
-//       // メニュー2押下→画像を配置
-//       function menu2(){
+      // メニュー2押下→画像を配置
+      function menu2(){
 //         var czml = [
 //                     {
 //                       id: "document",
@@ -116,67 +116,75 @@
 //                      }
 //                     ]
 //         viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
-//         con.classList.remove('show');
-//       } //ダブルクリックすると画像視点？になる
+        var entity = viewer.entities.add({
+          name : '点字ブロック設置',
+          position : Cesium.Cartesian3.fromDegrees(longitudeString,latitudeString,heightString),
+          billboard : {
+                        image : "./SampleData/cesium_stripes.png",
+                        scale : 0.2
+          },
+        });
+        con.classList.remove('show');
+      } //ダブルクリックすると画像視点？になる
 
       
-      var viewer = new Cesium.Viewer('cesiumContainer', {infoBox : false, selectionIndicator : false});
+//       var viewer = new Cesium.Viewer('cesiumContainer', {infoBox : false, selectionIndicator : false});
 
-var entity = viewer.entities.add({
-    name : 'Red box with black outline',
-    position: Cesium.Cartesian3.fromDegrees(-107.0, 40.0, 300000.0),
-    box : {
-        dimensions : new Cesium.Cartesian3(400000.0, 300000.0, 500000.0),
-        material : Cesium.Color.RED,
-        outline : true,
-        outlineColor : Cesium.Color.BLACK
-    }
-});
+// var entity = viewer.entities.add({
+//     name : 'Red box with black outline',
+//     position: Cesium.Cartesian3.fromDegrees(-107.0, 40.0, 300000.0),
+//     box : {
+//         dimensions : new Cesium.Cartesian3(400000.0, 300000.0, 500000.0),
+//         material : Cesium.Color.RED,
+//         outline : true,
+//         outlineColor : Cesium.Color.BLACK
+//     }
+// });
 
-var mousePosition = new Cesium.Cartesian2();
-var mousePositionProperty = new Cesium.CallbackProperty(function(time, result){
-    var position = scene.camera.pickEllipsoid(mousePosition, undefined, result);
-    var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);
-    cartographic.height = 300000.0;
-    return Cesium.Ellipsoid.WGS84.cartographicToCartesian(cartographic);
-}, false);
+// var mousePosition = new Cesium.Cartesian2();
+// var mousePositionProperty = new Cesium.CallbackProperty(function(time, result){
+//     var position = scene.camera.pickEllipsoid(mousePosition, undefined, result);
+//     var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);
+//     cartographic.height = 300000.0;
+//     return Cesium.Ellipsoid.WGS84.cartographicToCartesian(cartographic);
+// }, false);
 
-var scene = viewer.scene;
-var dragging = false;
-var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
-handler.setInputAction(
-    function(click) {
-        var pickedObject = scene.pick(click.position);
-        if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
-            dragging = true;
-            scene.screenSpaceCameraController.enableRotate = false;
-            Cesium.Cartesian2.clone(click.position, mousePosition);
-            entity.position = mousePositionProperty;
-        }
-    },
-    Cesium.ScreenSpaceEventType.LEFT_DOWN
-);
+// var scene = viewer.scene;
+// var dragging = false;
+// var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
+// handler.setInputAction(
+//     function(click) {
+//         var pickedObject = scene.pick(click.position);
+//         if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
+//             dragging = true;
+//             scene.screenSpaceCameraController.enableRotate = false;
+//             Cesium.Cartesian2.clone(click.position, mousePosition);
+//             entity.position = mousePositionProperty;
+//         }
+//     },
+//     Cesium.ScreenSpaceEventType.LEFT_DOWN
+// );
 
-handler.setInputAction(
-    function(movement) {
-        if (dragging) {
-            Cesium.Cartesian2.clone(movement.endPosition, mousePosition);
-        }
-    },
-    Cesium.ScreenSpaceEventType.MOUSE_MOVE
-);
+// handler.setInputAction(
+//     function(movement) {
+//         if (dragging) {
+//             Cesium.Cartesian2.clone(movement.endPosition, mousePosition);
+//         }
+//     },
+//     Cesium.ScreenSpaceEventType.MOUSE_MOVE
+// );
 
 
-handler.setInputAction(
-    function(click) {
-        if(dragging) {
-          dragging = false;
-          scene.screenSpaceCameraController.enableRotate = true;
-          entity.position = scene.camera.pickEllipsoid(click.position);
-        }
-    },
-    Cesium.ScreenSpaceEventType.LEFT_UP
-);
+// handler.setInputAction(
+//     function(click) {
+//         if(dragging) {
+//           dragging = false;
+//           scene.screenSpaceCameraController.enableRotate = true;
+//           entity.position = scene.camera.pickEllipsoid(click.position);
+//         }
+//     },
+//     Cesium.ScreenSpaceEventType.LEFT_UP
+// );
     
         
       
