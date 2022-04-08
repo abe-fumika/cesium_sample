@@ -148,6 +148,7 @@
         var scene = viewer.scene;
         var dragging = false;
         var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas); //画像移動のイベントリスナーを設置
+        // 左クリックでその地点の情報出てきていたが、下記操作すると出てこなくなる
         handler.setInputAction(
             function(click) {
                 var pickedObject = scene.pick(click.position);
