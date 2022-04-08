@@ -49,9 +49,6 @@
         <li onclick="menu2()">menu2</li>
     </div>
     
-    <!-- 画像回転 -->
-    <img id="img1" src="./SampleData/cesium_stripes.png" /><br>
-    <input type="button" value="右へ90度回転" onclick="rotate(90);">
     
     <script>
       var viewer = new Cesium.Viewer("cesiumContainer");
@@ -122,13 +119,7 @@
         con.classList.remove('show');
       } //ダブルクリックすると画像視点？になる
       
-      //  画像90度回転
-      var d = 0;
-      function rotate(x) { // right click
-        const e = document.getElementById("img1");
-        d = d + x;
-        e.style.transform = "rotate(" + d + "deg)";
-      }
+    
         
       
     </script>
