@@ -59,6 +59,7 @@
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
       
       let con = document.getElementById('contextmenu'); 
+      //経度緯度高さ
       var longitudeString = 0;
       var latitudeString = 0;
       var heightString = 0;
@@ -129,9 +130,11 @@
         con.classList.remove('show'); // コンテキストメニュー非表示
         
         var mousePosition = new Cesium.Cartesian2();
-        var mousePositionProperty = new Cesium.CallbackProperty(function(time, result){
+        var mousePositionProperty = new Cesium.CallbackProperty(function(time, result){ //値がコールバック関数によって遅延評価されるプロパティ。
             var position = scene.camera.pickEllipsoid(mousePosition, undefined, result);
+            console.log(`position=${position}`);
             var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);
+            console.log(`cartographic=${cartographic}`);
             cartographic.height = 300000.0;
             return Cesium.Ellipsoid.WGS84.cartographicToCartesian(cartographic);
         }, false);
