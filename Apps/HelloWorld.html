@@ -129,6 +129,7 @@
         
         con.classList.remove('show'); // コンテキストメニュー非表示
         
+        // zoomして画像動かすと、動かしているとき消える
         var mousePosition = new Cesium.Cartesian2();
         var mousePositionProperty = new Cesium.CallbackProperty(function(time, result){ //値がコールバック関数によって遅延評価されるプロパティ。
             var position = scene.camera.pickEllipsoid(mousePosition, undefined, result);
