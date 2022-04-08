@@ -42,11 +42,19 @@
   </head>
   <body>
     <div id="cesiumContainer"></div>
+    
+    <!-- コンテキストメニュー -->
     <div id="contextmenu" class="contextmenu"> 
         <li onclick="menu1()">menu1</li>
         <li onclick="menu2()">menu2</li>
     </div>
-
+    
+    <!-- 画像回転 -->
+    <img id="img1" src="./SampleData/cesium_stripes.png" /><br>
+    <input type="button" value="右へ90度回転" onclick="kaiten(90);">
+<!--     <input type="button" value="左へ90度回転" onclick="kaiten(-90);">
+    <input type="button" value="180度回転" onclick="kaiten(180);">
+ -->
     <script>
       var viewer = new Cesium.Viewer("cesiumContainer");
 //       const buildingTileset = viewer.scene.primitives.add(Cesium.createOsmBuildings());
@@ -115,6 +123,15 @@
         viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
         con.classList.remove('show');
       }
+      
+      // 画像回転
+      var d = 0;
+      function kaiten(x){
+        var e = document.getElementById("img1");
+        d = d + x;
+        e.style.transform = "rotate(" + d + "deg)";
+      }
+      
     </script>
   </body>
 </html>
