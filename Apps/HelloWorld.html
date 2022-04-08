@@ -47,6 +47,7 @@
     <div id="contextmenu" class="contextmenu"> 
         <input type="button" value="経度緯度高さ" onclick="menu1()">
         <input type="button" value="点字ブロック設置" onclick="menu2()">
+        <input type="button" value="点字ブロック撤去" onclick="menu3()">
     </div>
     
     
@@ -134,7 +135,8 @@
         var mousePositionProperty = new Cesium.CallbackProperty(function(time, result){ //値がコールバック関数によって遅延評価されるプロパティ。
             var position = scene.camera.pickEllipsoid(mousePosition, undefined, result);
             console.log(`position=${position}`);
-            var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position);
+            var cartographic = Cesium.Ellipsoid.WGS84.cartesianToCartographic(position); //デカルトを作成し、WGS84(アメリカで構築・維持されている世界測地系)楕円体でのデカルト表現を決定します。
+          
 //             var cartographic = Cesium.Ellipsoid.cartesianToCartographic(position); //×
             console.log(`cartographic=${cartographic}`);
             cartographic.height = 300000.0;
@@ -143,7 +145,7 @@
 
         var scene = viewer.scene;
         var dragging = false;
-        var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas);
+        var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas); //マウス移動のイベントリスナーを設置
         handler.setInputAction(
             function(click) {
                 var pickedObject = scene.pick(click.position);
@@ -178,6 +180,8 @@
             Cesium.ScreenSpaceEventType.LEFT_UP
         );
       } //ダブルクリックすると画像視点？になる
+      
+
               
     </script>
   </body>
