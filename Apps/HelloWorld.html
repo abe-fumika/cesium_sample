@@ -61,6 +61,27 @@
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
       
+      //右クリック長押しとの判別
+      let mem_lon = 0
+      let mem_lat = 0
+      // マウスボタン押下
+      viewer.canvas.addEventListener("pointerdown", function(e) {
+        // 右クリック時
+        if(event.which === 3){
+          // クリック座標変化の場合
+          const mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
+          const ellipsoid = viewer.scene.globe.ellipsoid;
+          const cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
+          if (cartesian) {
+            //位置情報を管理するオブジェクトcartographicを取得
+            const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+            //緯度経度を小数点5桁で取得
+            mem_lon = Cesium.Math.toDegrees(cartographic.longitude).toFixed(5);
+            mem_lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(5);
+          }
+        }
+      }, false);
+      
       let con = document.getElementById('contextmenu'); 
       //経度緯度高さ
       var longitudeString = 0;
@@ -74,16 +95,18 @@
           var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
           if (cartesian) {
               var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(2);
-              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(2);
-              heightString = Cesium.Math.toDegrees(cartographic.height).toFixed(2); // 	0.0	optionalThe height, in meters, above the ellipsoid.
+              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(5);
+              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(5);
+              heightString = Cesium.Math.toDegrees(cartographic.height).toFixed(5); // 	0.0	optionalThe height, in meters, above the ellipsoid.
               console.log(`cartographic=${cartographic}`);
               console.log(`heightString=${heightString}`);
 
 //               alert(longitudeString + ', ' + latitudeString); 
-              con.style.left = e.pageX + 'px';
-              con.style.top = e.pageY + 'px';
-              con.classList.add('show');
+              if(mem_lon === longitudeString && mem_lat === latitudeString) {
+                con.style.left = e.pageX + 'px';
+                con.style.top = e.pageY + 'px';
+                con.classList.add('show');
+              }
           } else {
               alert('Globe was not picked');
           }
