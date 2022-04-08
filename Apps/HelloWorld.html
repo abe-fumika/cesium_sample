@@ -183,10 +183,10 @@
         
         // 画像撤去
         handler.setInputAction(
-            function(click) {
+            function(rightclick) {
                 entities.remove(entity);
             },
-            Cesium.Cesium.ScreenSpaceEventType.RIGHT_CLICK //右クリックイベント
+            Cesium.Cesium.ScreenSpaceEventType.RIGHT_DOWN //右ボタンダウンイベント
         );
         
       } //ダブルクリックすると画像視点になる?
