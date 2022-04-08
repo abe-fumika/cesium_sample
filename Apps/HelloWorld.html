@@ -186,7 +186,7 @@
             function(rightclick) {
                 var pickedObject = scene.pick(rightclick.position);
                 if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
-                    entities.remove(entity);
+                    viewer.entities.remove(entity);
                 }
             },
             Cesium.ScreenSpaceEventType.RIGHT_DOWN //右ボタンダウンイベント
