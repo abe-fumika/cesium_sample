@@ -50,7 +50,7 @@
     </div>
     
     <!-- 画像回転 -->
-    <img id="img1" src="./SampleData/cesium_stripes.png" />
+    <img id="img1" onclick="rotate(90)" src="./SampleData/cesium_stripes.png" />
     
     <script>
       var viewer = new Cesium.Viewer("cesiumContainer");
@@ -121,14 +121,12 @@
         con.classList.remove('show');
       } //ダブルクリックすると画像視点？になる
       
-      //  右クリック押下→画像90度回転
+      //  画像90度回転
       var d = 0;
-      const e = document.getElementById("img1");
-      e.oncontextmenu = function () { // right click
-         d = d + 90;
-         e.style.transform = "rotate(" + d + "deg)";
-         // メニューが出るのを阻止
-         return false;
+      function rotate(x) { // right click
+        const e = document.getElementById("img1");
+        d = d + x;
+        e.style.transform = "rotate(" + d + "deg)";
       }
         
       
