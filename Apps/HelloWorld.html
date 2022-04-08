@@ -96,24 +96,22 @@
       // メニュー2押下→画像を配置
       function menu2(){
         var czml = [
-                  {
-                    id: "document",
-                    version: "1.0"
-                  },
-                  {
-                    "id" : "1",
-                    "description" : "点の作成",
-                    "position" : {
-                      "cartographicDegrees": [longitudeString,latitudeString,heightString]
+                    {
+                      id: "document",
+                      version: "1.0"
                     },
-                    "point": {
-                       "color": {
-                           "rgba": [255, 0, 0, 255]
-                       },
-                       "pixelSize": 20
+                    {
+                      "id" : "1",
+                      "description" : "点字ブロック設置",
+                      "position" : {
+                        "cartographicDegrees": [longitudeString,latitudeString,heightString]
+                      },
+                      "billboard" : {
+                        "image" : "./SampleData/.png",
+                        "scale" : 0.2
+                      },
                      }
-                   }
-                  ]
+                    ]
         viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
         con.classList.remove('show');
       }
