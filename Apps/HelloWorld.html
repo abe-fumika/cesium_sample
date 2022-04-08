@@ -180,6 +180,15 @@
             },
             Cesium.ScreenSpaceEventType.LEFT_UP //左ボタンアップイベント
         );
+        
+        // 画像撤去
+        handler.setInputAction(
+            function(click) {
+                entities.remove(entity);
+            },
+            Cesium.Cesium.ScreenSpaceEventType.RIGHT_CLICK //右クリックイベント
+        );
+        
       } //ダブルクリックすると画像視点になる?
       
 
