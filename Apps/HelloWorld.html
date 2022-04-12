@@ -90,6 +90,7 @@
            const mousePosition = new Cesium.Cartesian2(lon, lat);
 //            console.log(`mousePosition=${mousePosition}`);
            var cartesian = viewer.camera.pickEllipsoid(mousePosition, viewer.scene.globe.ellipsoid);
+//            worldToCameraCoordinatesPoint
            if (cartesian) { //マウスが点字ブロック設置可能場所にあることを判定
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
