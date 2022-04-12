@@ -99,11 +99,12 @@
        let con = document.getElementById('contextmenu'); 
        var scene = viewer.scene;
        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-       var pickedObject;
+       var position;
        handler.setInputAction(
          function(click) {
-           pickedObject = scene.pick(click.position);
-//            console.log(`pickedObject=${pickedObject}`);
+           var pickedObject = scene.pick(click.position);
+           position = scene.pickPosition(click.position);
+           console.log(`position=${position}`);
 
            if (Cesium.defined(pickedObject) && (pickedObject.id)) {
              console.log(`pickedObject.id.id=${pickedObject.id.id}`);
