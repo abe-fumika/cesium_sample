@@ -95,7 +95,7 @@
 //            console.log(`cartesian=${cartesian}`);
 //            const mousePosition =  movement.endPosition;
 //            console.log(`mousePosition=${mousePosition}`);
-           var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+           var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
            var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
            var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
            if (longitudeString == lon && latitudeString == lat) { //マウスが点字ブロック設置可能場所にあることを判定　object touch
