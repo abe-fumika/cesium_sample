@@ -129,14 +129,19 @@
           entity = viewer.entities.add({
           name : '点字ブロック設置',
           position : Cesium.Cartesian3.fromDegrees(lon[0],lat[0],hgt),
+          model : {
+            uri : './SampleData/models/CesiumAir/Cesium_Air.glb',
+            minimumPixelSize : 128,
+            maximumScale : 200000
+          },
 //           point : {
 //                 pixelSize : 30, //ポイントのサイズ
 //                 color : Cesium.Color.RED //ポイントの色
 //               },
-          billboard : {
-                        image : "./SampleData/cesium_stripes.png",
-                        scale : 0.2
-          },
+//           billboard : {
+//                         image : "./SampleData/cesium_stripes.png",
+//                         scale : 0.2
+//           },
           });
         } else {
           alert('点字ブロックはすでに設置されています。');
