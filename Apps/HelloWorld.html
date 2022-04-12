@@ -82,7 +82,30 @@
               },
              }
             ]
-        viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
+       viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
+      
+       let con = document.getElementById('contextmenu'); 
+       const mousePosition = new Cesium.Cartesian2(lon, lat);
+       const ellipsoid = viewer.scene.globe.ellipsoid;
+       const cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
+       if (cartesian) { // 点字ブロック設置可能場所の場合
+         console.log('aaa');
+       }
+      
+//        var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas); //イベントリスナーを設置
+//        handler.setInputAction(
+//             function(click) {
+//                 var pickedObject = scene.pick(click.position);
+//                 console.log(`pickedObject=${pickedObject}`);
+//                 if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
+//                     dragging = true;
+//                     scene.screenSpaceCameraController.enableRotate = false; //trueの場合、ユーザーがワールドを回転できるようにします　false回転禁止
+//                     Cesium.Cartesian2.clone(click.position, mousePosition); //複製
+//                     entity.position = mousePositionProperty; //画像の位置はマウス移動の位置
+//                 }
+//             },
+//             Cesium.ScreenSpaceEventType. //左ボタンダウンイベント
+//        );
       
       
       
