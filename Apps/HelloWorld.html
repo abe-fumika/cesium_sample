@@ -88,11 +88,11 @@
        handler.setInputAction(
          function(movement) {
            const mousePosition = new Cesium.Cartesian2(lon, lat);
-           console.log(`mousePosition=${mousePosition}`);
+//            console.log(`mousePosition=${mousePosition}`);
            var cartesian = viewer.camera.pickEllipsoid(mousePosition, viewer.scene.globe.ellipsoid);
            //マウスが点字ブロック設置可能場所にあることを判定
            if (cartesian) {
-             console.log('aaa');
+//              console.log('aaa');
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
              con.classList.add('show');
@@ -102,7 +102,6 @@
       
       // 点字ブロック設置
       var entity = undefined;
-      console.log(`entity=${entity}`);
       function menu1(){
           entity = viewer.entities.add({
           name : '点字ブロック設置',
@@ -111,8 +110,10 @@
                         image : "./SampleData/cesium_stripes.png",
                         scale : 0.2
           },
-        });
+          });
+          console.log(`entity=${entity}`);
       }
+      console.log(`entity=${entity}`);
       
       // 点字ブロック撤去
       function menu2(){
