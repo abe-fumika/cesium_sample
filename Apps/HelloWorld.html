@@ -115,7 +115,11 @@
       
       // 点字ブロック撤去
       function menu2(){
-        viewer.entities.remove(entity);
+        if () {
+          viewer.entities.remove(entity);
+        } else {
+          alert('点字ブロックは設置されていません。');
+        }
       }
       
 
