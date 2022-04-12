@@ -61,8 +61,10 @@
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
       
       // 点字ブロック設置可能場所
-      const lon = 139.6969517;
-      const lat = 35.5313543;
+//       const lon = 139.6969517;
+//       const lat = 35.5313543;
+      const lon = 139;
+      const lat = 35;
       const hgt = 30;
       var czml = [
             {
@@ -93,12 +95,12 @@
            var latitudeString;
            if (cartesian) {
              var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-             longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-             latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+             longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(0);
+             latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(0);
            }
            console.log(`longitudeString=${longitudeString}`);
            console.log(`latitudeString=${latitudeString}`);
-           if (longitudeString == lon && latitudeString == lat) { //マウスが点字ブロック設置可能場所にあることを判定　object touch
+           if (longitudeString == lon && latitudeString == lat) { //マウスが点字ブロック設置可能場所にあることを判定　
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
              con.classList.add('show');
