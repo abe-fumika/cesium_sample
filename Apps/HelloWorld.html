@@ -96,7 +96,8 @@
              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
            }
-           
+           console.log(`longitudeString=${longitudeString}`);
+           console.log(`latitudeString=${latitudeString}`);
            if (longitudeString == lon && latitudeString == lat) { //マウスが点字ブロック設置可能場所にあることを判定　object touch
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
