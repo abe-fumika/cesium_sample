@@ -104,22 +104,22 @@
            var pickedObject = scene.pick(click.position);
            console.log(`pickedObject=${pickedObject}`);
 
-//            if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
-           var ellipsoid = viewer.scene.globe.ellipsoid;
-           var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
-           var longitudeString;
-           var latitudeString;
-           if (cartesian) {
-             var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-             longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(0);
-             latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(0);
-           }
-           console.log(`longitudeString=${longitudeString}`);
-           console.log(`latitudeString=${latitudeString}`);
-           if ((longitudeString == lon[0] && latitudeString == lat[0]) ||
-                (longitudeString == lon[1] && latitudeString == lat[1])) { //マウスが点字ブロック設置可能場所にあることを判定
-             con.style.left = lon + 'px';
-             con.style.top = lat + 'px';
+           if (Cesium.defined(pickedObject)) {
+//            var ellipsoid = viewer.scene.globe.ellipsoid;
+//            var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
+//            var longitudeString;
+//            var latitudeString;
+//            if (cartesian) {
+//              var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+//              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(0);
+//              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(0);
+//            }
+//            console.log(`longitudeString=${longitudeString}`);
+//            console.log(`latitudeString=${latitudeString}`);
+//            if ((longitudeString == lon[0] && latitudeString == lat[0]) ||
+//                 (longitudeString == lon[1] && latitudeString == lat[1])) { //マウスが点字ブロック設置可能場所にあることを判定
+//              con.style.left = lon + 'px';
+//              con.style.top = lat + 'px';
              con.classList.add('show');
            } //else {
 //              con.classList.remove('show');
