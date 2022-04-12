@@ -106,7 +106,8 @@
 
            if (Cesium.defined(pickedObject) && (pickedObject.id)) {
              console.log(`pickedObject.id.id=${pickedObject.id.id}`);
-             console.log(`pickedObject.id.point.position=${pickedObject.id.point.position}`);
+             console.log(`pickedObject.id.position.cartographicDegrees=${pickedObject.id.position.cartographicDegrees}`);
+             console.log(pickedObject.id.point.position.getValue(viewer.clock.currentTime));
 //            var ellipsoid = viewer.scene.globe.ellipsoid;
 //            var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
 //            var longitudeString;
