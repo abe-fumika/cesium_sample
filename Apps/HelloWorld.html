@@ -85,31 +85,18 @@
        viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
       
        let con = document.getElementById('contextmenu'); 
-       const mousePosition = new Cesium.Cartesian2(lon, lat);
-       const ellipsoid = viewer.scene.globe.ellipsoid;
-       const cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
-      console.log(`cartesian=${cartesian}`);
-       if (cartesian) { // 点字ブロック設置可能場所の場合
-//          con.style.left = e.pageX + 'px';
-//          con.style.top = e.pageY + 'px';
-         con.classList.add('show');
-         
-       }
+       var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+       handler.setInputAction(
+         function(movement) {
+           var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, viewer.scene.globe.ellipsoid);
+           //マウスが点字ブロック設置可能場所にあることを判定
+           if (cartesian) {
+             console.log('aaa');
+           }
+         }, Cesium.ScreenSpaceEventType.MOUSE_MOVE
+       );
       
-//        var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas); //イベントリスナーを設置
-//        handler.setInputAction(
-//             function(click) {
-//                 var pickedObject = scene.pick(click.position);
-//                 console.log(`pickedObject=${pickedObject}`);
-//                 if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
-//                     dragging = true;
-//                     scene.screenSpaceCameraController.enableRotate = false; //trueの場合、ユーザーがワールドを回転できるようにします　false回転禁止
-//                     Cesium.Cartesian2.clone(click.position, mousePosition); //複製
-//                     entity.position = mousePositionProperty; //画像の位置はマウス移動の位置
-//                 }
-//             },
-//             Cesium.ScreenSpaceEventType. //左ボタンダウンイベント
-//        );
+
       
       
       
