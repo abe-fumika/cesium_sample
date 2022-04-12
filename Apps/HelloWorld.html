@@ -37,7 +37,6 @@
 
       #contextmenu.show {
         display: block;
-        background-color:	#808080;
       }
     </style>
   </head>
@@ -47,7 +46,7 @@
     <!-- コンテキストメニュー -->
     <div id="contextmenu" class="contextmenu">点字ブロック<br>
         <input type="button" value="設置" onclick="menu1()">
-        <input type="button" value="除去" onclick="menu2()">
+        <input type="button" value="撤去" onclick="menu2()">
     </div>
     
     <!--         <input type="button" value="点字ブロック撤去" onclick="menu3()"> -->
@@ -100,6 +99,24 @@
            }
          }, Cesium.ScreenSpaceEventType.MOUSE_MOVE
        );
+      
+      // 点字ブロック設置
+      var entity;
+      function menu1(){
+          entity = viewer.entities.add({
+          name : '点字ブロック設置',
+          position : Cesium.Cartesian3.fromDegrees(lon,lat,hgt),
+          billboard : {
+                        image : "./SampleData/cesium_stripes.png",
+                        scale : 0.2
+          },
+        });
+      }
+      
+      // 点字ブロック撤去
+      function menu2(){
+        viewer.entities.remove(entity);
+      }
       
 
       
