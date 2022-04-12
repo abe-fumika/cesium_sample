@@ -101,7 +101,8 @@
        );
       
       // 点字ブロック設置
-      var entity;
+      var entity = undefined;
+      console.log(`entity=${entity}`);
       function menu1(){
           entity = viewer.entities.add({
           name : '点字ブロック設置',
@@ -111,16 +112,15 @@
                         scale : 0.2
           },
         });
-        console.log(`entity=${entity}`);
       }
       
       // 点字ブロック撤去
       function menu2(){
-//         if () {
+        if (entity != undefined) {
           viewer.entities.remove(entity);
-//         } else {
-//           alert('点字ブロックは設置されていません。');
-//         }
+        } else {
+          alert('点字ブロックは設置されていません。');
+        }
       }
       
 
