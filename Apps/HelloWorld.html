@@ -78,7 +78,7 @@
                 "cartographicDegrees": [lon[0], lat[0], hgt]
               },
               "point" : {
-                "pixelSize" : 30, //ポイントのサイズ
+                "pixelSize" : 10, //ポイントのサイズ
                 "color" : Cesium.Color.BLUE //ポイントの色
               },
              },
@@ -89,7 +89,7 @@
                 "cartographicDegrees": [lon[1], lat[1], hgt]
               },
               "point" : {
-                "pixelSize" : 30, //ポイントのサイズ
+                "pixelSize" : 10, //ポイントのサイズ
                 "color" : Cesium.Color.BLUE //ポイントの色
               },
              },
@@ -129,14 +129,14 @@
           entity = viewer.entities.add({
           name : '点字ブロック設置',
           position : Cesium.Cartesian3.fromDegrees(lon[0],lat[0],hgt),
-          point : {
-                pixelSize : 30, //ポイントのサイズ
-                color : Cesium.Color.RED //ポイントの色
-              },
-//           billboard : {
-//                         image : "./SampleData/cesium_stripes.png",
-//                         scale : 0.2
-//           },
+//           point : {
+//                 pixelSize : 30, //ポイントのサイズ
+//                 color : Cesium.Color.RED //ポイントの色
+//               },
+          billboard : {
+                        image : "./SampleData/cesium_stripes.png",
+                        scale : 0.2
+          },
           });
         } else {
           alert('点字ブロックはすでに設置されています。');
