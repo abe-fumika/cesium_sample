@@ -97,9 +97,14 @@
        viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
       
        let con = document.getElementById('contextmenu'); 
+       var scene = viewer.scene;
        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
        handler.setInputAction(
-         function(movement) {
+         function(click) {
+           var pickedObject = scene.pick(click.position);
+           console.log(`pickedObject.id=${pickedObject.id}`);
+
+//            if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
            var ellipsoid = viewer.scene.globe.ellipsoid;
            var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
            var longitudeString;
@@ -119,7 +124,7 @@
            } //else {
 //              con.classList.remove('show');
 //            }
-         }, Cesium.ScreenSpaceEventType.MOUSE_MOVE
+         }, Cesium.ScreenSpaceEventType.LEFT_DOWN //左ボタンダウンイベント
        );
       
       // 点字ブロック設置
