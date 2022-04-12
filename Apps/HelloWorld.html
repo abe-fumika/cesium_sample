@@ -117,10 +117,13 @@
           entity = viewer.entities.add({
           name : '点字ブロック設置',
           position : Cesium.Cartesian3.fromDegrees(lon,lat,hgt),
-          billboard : {
-                        image : "./SampleData/cesium_stripes.png",
-                        scale : 0.2
+          model:{
+            gltf:"https://cesium.com/public/SandcastleSampleData/launchvehicle.glb"
           },
+//           billboard : {
+//                         image : "./SampleData/cesium_stripes.png",
+//                         scale : 0.2
+//           },
           });
         } else {
           alert('点字ブロックはすでに設置されています。');
