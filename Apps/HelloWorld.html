@@ -99,9 +99,10 @@
        let con = document.getElementById('contextmenu'); 
        var scene = viewer.scene;
        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+       var pickedObject;
        handler.setInputAction(
          function(click) {
-           var pickedObject = scene.pick(click.position);
+           pickedObject = scene.pick(click.position);
 //            console.log(`pickedObject=${pickedObject}`);
 
            if (Cesium.defined(pickedObject) && (pickedObject.id)) {
@@ -136,7 +137,7 @@
         if (entity == undefined) {
           entity = viewer.entities.add({
           name : '点字ブロック設置',
-          position : Cesium.Cartesian3.fromDegrees(lon[0],lat[0],hgt),
+          position : pickedObject,
           model : {
             uri : './SampleData/models/CesiumAir/Cesium_Air.glb',
             minimumPixelSize : 128,
