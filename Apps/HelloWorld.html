@@ -103,7 +103,7 @@
       // 点字ブロック設置
       var entity = undefined;
       function menu1(){
-        if (entity != undefined) {
+        if (entity == undefined) {
           entity = viewer.entities.add({
           name : '点字ブロック設置',
           position : Cesium.Cartesian3.fromDegrees(lon,lat,hgt),
