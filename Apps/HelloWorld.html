@@ -102,7 +102,7 @@
        handler.setInputAction(
          function(click) {
            var pickedObject = scene.pick(click.position);
-           console.log(`pickedObject.id=${pickedObject.id}`);
+           console.log(`pickedObject=${pickedObject}`);
 
 //            if (Cesium.defined(pickedObject) && (pickedObject.id === entity)) {
            var ellipsoid = viewer.scene.globe.ellipsoid;
