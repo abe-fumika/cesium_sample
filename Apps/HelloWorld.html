@@ -87,18 +87,16 @@
        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
        handler.setInputAction(
          function(movement) {
-//            const mousePosition = new Cesium.Cartesian2(lon, lat);
-//            const mousePosition = new Cesium.Cartesian3(lon, lat, hgt);
-//            console.log(`mousePosition=${mousePosition}`);
            var ellipsoid = viewer.scene.globe.ellipsoid;
            var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
-//            var cartesian = viewer.camera.worldToCameraCoordinatesVector(mousePosition);
-//            console.log(`cartesian=${cartesian}`);
-//            const mousePosition =  movement.endPosition;
-//            console.log(`mousePosition=${mousePosition}`);
-           var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-           var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-           var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+           var longitudeString;
+           var latitudeString;
+           if (cartesian) {
+             var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+             longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
+             latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
+           }
+           
            if (longitudeString == lon && latitudeString == lat) { //マウスが点字ブロック設置可能場所にあることを判定　object touch
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
