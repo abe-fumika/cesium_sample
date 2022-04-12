@@ -88,7 +88,7 @@
        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
        handler.setInputAction(
          function(movement) {
-           var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, viewer.scene.globe.ellipsoid);
+           var cartesian = viewer.camera.pickEllipsoid(lon, lat, viewer.scene.globe.ellipsoid);
            //マウスが点字ブロック設置可能場所にあることを判定
            if (cartesian) {
              console.log('aaa');
