@@ -93,7 +93,9 @@
 //            var cartesian = viewer.camera.pickEllipsoid(mousePosition, viewer.scene.globe.ellipsoid);
 //            var cartesian = viewer.camera.worldToCameraCoordinatesVector(mousePosition);
 //            console.log(`cartesian=${cartesian}`);
-           if (cartesian) { //マウスが点字ブロック設置可能場所にあることを判定　object touch
+           const mousePosition =  movement.endPosition;
+           console.log(`mousePosition=${mousePosition}`);
+           if (mousePosition) { //マウスが点字ブロック設置可能場所にあることを判定　object touch
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
              con.classList.add('show');
