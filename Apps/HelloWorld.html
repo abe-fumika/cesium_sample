@@ -90,10 +90,10 @@
            const mousePosition = new Cesium.Cartesian2(lon, lat);
 //            const mousePosition = new Cesium.Cartesian3(lon, lat, hgt);
 //            console.log(`mousePosition=${mousePosition}`);
-           var cartesian = viewer.camera.pickEllipsoid(mousePosition, viewer.scene.globe.ellipsoid);
+//            var cartesian = viewer.camera.pickEllipsoid(mousePosition, viewer.scene.globe.ellipsoid);
 //            var cartesian = viewer.camera.worldToCameraCoordinatesVector(mousePosition);
-           console.log(`cartesian=${cartesian}`);
-           if (cartesian) { //マウスが点字ブロック設置可能場所にあることを判定
+//            console.log(`cartesian=${cartesian}`);
+           if (cartesian) { //マウスが点字ブロック設置可能場所にあることを判定　object touch
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
              con.classList.add('show');
