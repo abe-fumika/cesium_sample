@@ -116,9 +116,9 @@
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
              con.classList.add('show');
-           } else {
-             con.classList.remove('show');
-           }
+           } //else {
+//              con.classList.remove('show');
+//            }
          }, Cesium.ScreenSpaceEventType.MOUSE_MOVE
        );
       
@@ -137,6 +137,7 @@
         } else {
           alert('点字ブロックはすでに設置されています。');
         }
+        con.classList.remove('show');
       }
       
       // 点字ブロック撤去
@@ -147,6 +148,7 @@
         } else {
           alert('点字ブロックは設置されていません。');
         }
+        con.classList.remove('show');
       }
       
 
