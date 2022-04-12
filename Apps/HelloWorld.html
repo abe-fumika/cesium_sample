@@ -134,7 +134,7 @@
       // 点字ブロック設置
       var entity = undefined;
       function menu1(){
-        if (entity == undefined) { //条件式変える
+        if (entity == undefined) { //条件式変える　pickedObject.id.id
           entity = viewer.entities.add({
           name : '点字ブロック設置',
           position : position,
@@ -160,7 +160,7 @@
       
       // 点字ブロック撤去
       function menu2(){
-        if (entity != undefined) {　//条件式変える
+        if (entity != undefined) {　//条件式変える pickedObject.id.id
           viewer.entities.remove(entity);
           entity = undefined;
         } else {
