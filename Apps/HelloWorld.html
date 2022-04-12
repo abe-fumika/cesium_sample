@@ -99,10 +99,11 @@
        let con = document.getElementById('contextmenu'); 
        var scene = viewer.scene;
        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+       var pickedObject;
        var position;
        handler.setInputAction(
          function(click) {
-           var pickedObject = scene.pick(click.position);
+           pickedObject = scene.pick(click.position);
            position = scene.pickPosition(click.position);
            console.log(`position=${position}`);
 
@@ -136,7 +137,8 @@
       function menu1(){
         if (entity == undefined) { //条件式変える　pickedObject.id.id
           entity = viewer.entities.add({
-          name : '点字ブロック設置',
+          name : pickedObject.id.id,
+          description : '点字ブロック',
           position : position,
           model : {
             uri : './SampleData/models/CesiumAir/Cesium_Air.glb',
