@@ -77,7 +77,7 @@
                 "cartographicDegrees": [lon, lat, hgt]
               },
               "point" : {
-                "pixelSize" : 10, //ポイントのサイズ
+                "pixelSize" : 30, //ポイントのサイズ
                 "color" : Cesium.Color.BLUE //ポイントの色
               },
              }
@@ -94,6 +94,9 @@
            //マウスが点字ブロック設置可能場所にあることを判定
            if (cartesian) {
              console.log('aaa');
+             con.style.left = lon + 'px';
+             con.style.top = lat + 'px';
+             con.classList.add('show');
            }
          }, Cesium.ScreenSpaceEventType.MOUSE_MOVE
        );
