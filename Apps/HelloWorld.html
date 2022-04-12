@@ -108,7 +108,6 @@
 
            if (Cesium.defined(pickedObject) && (pickedObject.id)) {
              console.log(`pickedObject.id.id=${pickedObject.id.id}`);
-             console.log(`pickedObject.id.position.cartographicDegrees=${pickedObject.id.position.cartographicDegrees}`);
 
 //            var ellipsoid = viewer.scene.globe.ellipsoid;
 //            var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
@@ -135,7 +134,7 @@
       // 点字ブロック設置
       var entity = undefined;
       function menu1(){
-        if (entity == undefined) {
+        if (entity == undefined) { //条件式変える
           entity = viewer.entities.add({
           name : '点字ブロック設置',
           position : position,
@@ -161,7 +160,7 @@
       
       // 点字ブロック撤去
       function menu2(){
-        if (entity != undefined) {
+        if (entity != undefined) {　//条件式変える
           viewer.entities.remove(entity);
           entity = undefined;
         } else {
