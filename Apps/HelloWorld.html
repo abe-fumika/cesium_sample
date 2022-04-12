@@ -45,10 +45,10 @@
     <div id="cesiumContainer"></div>
     
     <!-- コンテキストメニュー -->
-<!--     <div id="contextmenu" class="contextmenu"> 
+    <div id="contextmenu" class="contextmenu"> 
         <input type="button" value="経度緯度高さ" onclick="menu1()">
         <input type="button" value="点字ブロック設置" onclick="menu2()">
-    </div> -->
+    </div>
     
     <!--         <input type="button" value="点字ブロック撤去" onclick="menu3()"> -->
     
@@ -88,8 +88,12 @@
        const mousePosition = new Cesium.Cartesian2(lon, lat);
        const ellipsoid = viewer.scene.globe.ellipsoid;
        const cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
+      console.log(`cartesian=${cartesian}`);
        if (cartesian) { // 点字ブロック設置可能場所の場合
-         console.log('aaa');
+//          con.style.left = e.pageX + 'px';
+//          con.style.top = e.pageY + 'px';
+         con.classList.add('show');
+         
        }
       
 //        var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas); //イベントリスナーを設置
