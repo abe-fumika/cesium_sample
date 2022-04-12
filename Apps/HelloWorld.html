@@ -63,8 +63,8 @@
       // 点字ブロック設置可能場所
 //       const lon = 139.6969517;
 //       const lat = 35.5313543;
-      const lon = 139;
-      const lat = 35;
+      const lon = [139, 159];
+      const lat = [35, 55];
       const hgt = 30;
       var czml = [
             {
@@ -75,13 +75,24 @@
               "id" : "1",
               "description" : "点字ブロック設置可能場所",
               "position" : {
-                "cartographicDegrees": [lon, lat, hgt]
+                "cartographicDegrees": [lon[0], lat[0], hgt]
               },
               "point" : {
                 "pixelSize" : 30, //ポイントのサイズ
                 "color" : Cesium.Color.BLUE //ポイントの色
               },
-             }
+             },
+             {
+              "id" : "2",
+              "description" : "点字ブロック設置可能場所",
+              "position" : {
+                "cartographicDegrees": [lon[1], lat[1], hgt]
+              },
+              "point" : {
+                "pixelSize" : 30, //ポイントのサイズ
+                "color" : Cesium.Color.BLUE //ポイントの色
+              },
+             },
             ]
        viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
       
@@ -100,7 +111,8 @@
            }
            console.log(`longitudeString=${longitudeString}`);
            console.log(`latitudeString=${latitudeString}`);
-           if (longitudeString == lon && latitudeString == lat) { //マウスが点字ブロック設置可能場所にあることを判定　
+           if ((longitudeString == lon[0] && latitudeString == lat[0]) ||
+                (longitudeString == lon[1] && latitudeString == lat[1])) { //マウスが点字ブロック設置可能場所にあることを判定　
              con.style.left = lon + 'px';
              con.style.top = lat + 'px';
              con.classList.add('show');
