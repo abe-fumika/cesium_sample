@@ -133,10 +133,11 @@
        );
       
       // 点字ブロック設置
-      var entityName = undefined;
+      var entity;
+      var entityId = undefined;
       function menu1(){
-        if (entityName != pickedObject.id.id) { 
-          var entity = viewer.entities.add({
+        if (entityId != pickedObject.id.id) { 
+          entity = viewer.entities.add({
           id : pickedObject.id.id,
           description : '点字ブロック',
           position : position,
@@ -154,7 +155,7 @@
 //                         scale : 0.2
 //           },
           });
-          entityName = entity.id;
+          entityId = entity.id;
         } else {
           alert('点字ブロックはすでに設置されています。');
         }
@@ -163,9 +164,9 @@
       
       // 点字ブロック撤去
       function menu2(){
-        if (entityName == pickedObject.id.id) {
+        if (entityId == pickedObject.id.id) {
           viewer.entities.remove(entity);
-          entityName = undefined;
+          entityId = undefined;
         } else {
           alert('点字ブロックは設置されていません。');
         }
