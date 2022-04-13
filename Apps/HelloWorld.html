@@ -43,9 +43,7 @@
   </head>
   <body>
     <div id="cesiumContainer"></div>
-    <div id="toolbar">
-      <button id="graph-display" disabled>グラフ表示</button>
-    </div>
+    <div id="chart"></div>
     
 <!--     <!-- コンテキストメニュー -->
     <div id="contextmenu" class="contextmenu">点字ブロック<br>
@@ -63,10 +61,26 @@
 //       viewer.dataSources.add(Cesium.CzmlDataSource.load("./SampleData/Vehicle.czml"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
-      document.querySelector('#graph-display').disabled = true;
-      document.querySelector('#graph-display').onclick = function() {
-        console.log('aaa');
-      };
+      var options = {
+        chart: {
+          type: 'line'
+        },
+        series: [{
+          name: 'sales',
+          data: [30,40,35,50,49,60,70,91,125]
+        }],
+        xaxis: {
+          categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+        }
+      }
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+      chart.render();
+//       document.querySelector('#graph-display').disabled = true;
+//       document.querySelector('#graph-display').onclick = function() {
+//         console.log('aaa');
+//       };
       
       
       
