@@ -37,36 +37,14 @@
 <!--       <button id="genczml" disabled>人流生成</button>
       <button id="genczmlweight" disabled>車いす人流生成</button>
       <button id="toggle-geojson" disabled>経路ネットワーク編集トグル</button> -->
-      <button id="graph-display">グラフ表示</button>
+      <button id="graph-display" disabled>グラフ表示</button>
     </div>
     <div id="chart"></div>
     <script>
       var viewer = new Cesium.Viewer("cesiumContainer");
      
-      const btn = document.querySelector('#graph-display');
-      btn.addEventListener('click', () => {
-        var options = {
-          chart: {
-            type: 'line'
-          },
-          series: [{
-            name: 'sales',
-            data: [30,40,35,50,49,60,70,91,125]
-          }],
-          xaxis: {
-            categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-          }
-        }
-
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-        chart.render();
-        alert('クリックされました');
-      })
-      
-      
-//       document.querySelector('#graph-display').onclick = function() {
-//         document.querySelector('#graph-display').disabled = true;
+//       const btn = document.querySelector('#graph-display');
+//       btn.addEventListener('click', () => {
 //         var options = {
 //           chart: {
 //             type: 'line'
@@ -83,8 +61,28 @@
 //         var chart = new ApexCharts(document.querySelector("#chart"), options);
 
 //         chart.render();
-//         console.log('aaa');
-//       };
+//         alert('クリックされました');
+//       })
+      
+      document.querySelector('#graph-display').disabled = false;
+      document.querySelector('#graph-display').onclick = function() {
+        var options = {
+          chart: {
+            type: 'line'
+          },
+          series: [{
+            name: 'sales',
+            data: [30,40,35,50,49,60,70,91,125]
+          }],
+          xaxis: {
+            categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+          }
+        }
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+        chart.render();
+      };
       
               
     </script>
