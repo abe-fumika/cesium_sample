@@ -31,7 +31,7 @@
       #toolbar { z-index: 1; position: fixed; top: 5px; left: 5px; }
       #chart {
         position: relative;
-        height: 100vh; /* 全画面表示 */
+/*         height: 100vh; /* 全画面表示 */ */
       }
     </style>
   </head>
@@ -53,6 +53,9 @@
           chart: {
             type: 'line',
             background: '#fff'
+          },
+          legend: {
+            position: 'bottom'
           },
           series: [{
             name: 'sales',
