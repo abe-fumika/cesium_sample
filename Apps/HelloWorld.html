@@ -137,7 +137,7 @@
       var entityId = undefined;
       console.log(`entityId=${entityId}`);
       function menu1(){
-        if (entityId != pickedObject.id.id) { 
+        if (!Cesium.defined(entityId)) { 
           entity = viewer.entities.add({
           id : pickedObject.id.id,
           description : '点字ブロック',
