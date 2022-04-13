@@ -51,14 +51,10 @@
       document.querySelector('#graph-display').onclick = function() {
         var options = {
           chart: {
+            height: '50%',
+            width: '50%',
             type: 'line',
             background: '#fff'
-          },
-          legend: {
-            show: true,
-            position: 'bottom',
-            width: 12,
-            height: 12
           },
           series: [{
             name: 'sales',
