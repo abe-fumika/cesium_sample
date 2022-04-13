@@ -136,7 +136,7 @@
       var entity = undefined;
       var entityName = undefined;
       function menu1(){
-        if (entity == undefined && entityName != pickedObject.id.id) { 
+        if (entityName != pickedObject.id.id) { 
           entity = viewer.entities.add({
           name : pickedObject.id.id,
           description : '点字ブロック',
@@ -164,9 +164,10 @@
       
       // 点字ブロック撤去
       function menu2(){
-        if (entity != undefined) {
+        if (entityName == pickedObject.id.id) {
           viewer.entities.remove(entity);
           entity = undefined;
+          entityName = undefined;
         } else {
           alert('点字ブロックは設置されていません。');
         }
