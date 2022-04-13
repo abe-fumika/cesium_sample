@@ -23,8 +23,8 @@
         padding: 0;
         overflow: hidden;
       }
-      
-      #contextmenu {
+      #toolbar { z-index: 1; position: fixed; top: 5px; left: 5px; }
+/*       #contextmenu {
         display:none;
         position:fixed;
         left:0px;
@@ -37,17 +37,20 @@
 
       #contextmenu.show {
         display: block;
-      }
+      } */
     </style>
   </head>
   <body>
     <div id="cesiumContainer"></div>
+    <div id="toolbar">
+      <button id="graph-display" disabled>グラフ表示</button>
+    </div>
     
-    <!-- コンテキストメニュー -->
+<!--     <!-- コンテキストメニュー -->
     <div id="contextmenu" class="contextmenu">点字ブロック<br>
         <input type="button" value="設置" onclick="menu1()">
         <input type="button" value="撤去" onclick="menu2()">
-    </div>
+    </div> -->
     
     <!--         <input type="button" value="点字ブロック撤去" onclick="menu3()"> -->
     
@@ -60,119 +63,127 @@
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.geojson"));
 //       viewer.dataSources.add(Cesium.GeoJsonDataSource.load("./SampleData/abe.czml"));
       
-      // 点字ブロック設置可能場所
-//       const lon = 139.6969517;
-//       const lat = 35.5313543;
-      const lon = [139, 159];
-      const lat = [35, 55];
-      const hgt = 30;
-      var czml = [
-            {
-              id: "document",
-              version: "1.0"
-            },
-            {
-              "id" : "1",
-              "description" : "点字ブロック設置可能場所",
-              "position" : {
-                "cartographicDegrees": [lon[0], lat[0], hgt]
-              },
-              "point" : {
-                "pixelSize" : 10, //ポイントのサイズ
-                "color" : Cesium.Color.BLUE //ポイントの色
-              },
-             },
-             {
-              "id" : "2",
-              "description" : "点字ブロック設置可能場所",
-              "position" : {
-                "cartographicDegrees": [lon[1], lat[1], hgt]
-              },
-              "point" : {
-                "pixelSize" : 10, //ポイントのサイズ
-                "color" : Cesium.Color.BLUE //ポイントの色
-              },
-             },
-            ]
-       viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
+      document.querySelector('#graph-display').onclick = function() {
+        console.log('aaa');
+      };
       
-       let con = document.getElementById('contextmenu'); 
-       var scene = viewer.scene;
-       var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-       var pickedObject;
-       var position;
-       handler.setInputAction(
-         function(click) {
-           pickedObject = scene.pick(click.position);
-           position = scene.pickPosition(click.position);
-           console.log(`position=${position}`);
-
-           if (Cesium.defined(pickedObject) && (pickedObject.id)) {
-             console.log(`pickedObject.id.id=${pickedObject.id.id}`);
-
-//            var ellipsoid = viewer.scene.globe.ellipsoid;
-//            var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
-//            var longitudeString;
-//            var latitudeString;
-//            if (cartesian) {
-//              var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-//              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(0);
-//              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(0);
-//            }
-//            console.log(`longitudeString=${longitudeString}`);
-//            console.log(`latitudeString=${latitudeString}`);
-//            if ((longitudeString == lon[0] && latitudeString == lat[0]) ||
-//                 (longitudeString == lon[1] && latitudeString == lat[1])) { //マウスが点字ブロック設置可能場所にあることを判定
-//              con.style.left = lon + 'px';
-//              con.style.top = lat + 'px';
-             con.classList.add('show');
-           } //else {
-//              con.classList.remove('show');
-//            }
-         }, Cesium.ScreenSpaceEventType.LEFT_DOWN //左ボタンダウンイベント
-       );
       
-      // 点字ブロック設置
-      var entity;
-      var entityId = undefined;
-      console.log(`entityId=${entityId}`);
-      function menu1(){
-        if (!Cesium.defined(viewer.entities.getById(entityId))) { 
-          entity = viewer.entities.add({
-          id : pickedObject.id.id,
-          description : '点字ブロック',
-          position : position,
-          model : {
-            uri : './SampleData/models/CesiumAir/Cesium_Air.glb',
-            minimumPixelSize : 128,
-            maximumScale : 200000
-          },
-//           point : {
-//                 pixelSize : 30, //ポイントのサイズ
-//                 color : Cesium.Color.RED //ポイントの色
+      
+      
+      
+//       // 点字ブロック設置可能場所
+// //       const lon = 139.6969517;
+// //       const lat = 35.5313543;
+//       const lon = [139, 159];
+//       const lat = [35, 55];
+//       const hgt = 30;
+//       var czml = [
+//             {
+//               id: "document",
+//               version: "1.0"
+//             },
+//             {
+//               "id" : "1",
+//               "description" : "点字ブロック設置可能場所",
+//               "position" : {
+//                 "cartographicDegrees": [lon[0], lat[0], hgt]
 //               },
-//           billboard : {
-//                         image : "./SampleData/cesium_stripes.png",
-//                         scale : 0.2
-//           },
-          });
-          entityId = entity.id;
-        } else {
-          alert('点字ブロックはすでに設置されています。');
-        }
-        con.classList.remove('show');
-      }
+//               "point" : {
+//                 "pixelSize" : 10, //ポイントのサイズ
+//                 "color" : Cesium.Color.BLUE //ポイントの色
+//               },
+//              },
+//              {
+//               "id" : "2",
+//               "description" : "点字ブロック設置可能場所",
+//               "position" : {
+//                 "cartographicDegrees": [lon[1], lat[1], hgt]
+//               },
+//               "point" : {
+//                 "pixelSize" : 10, //ポイントのサイズ
+//                 "color" : Cesium.Color.BLUE //ポイントの色
+//               },
+//              },
+//             ]
+//        viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
       
-      // 点字ブロック撤去
-      function menu2(){
-        if (entityId == pickedObject.id.id) {
-          viewer.entities.remove(entity);
-          entityId = undefined;
-        } else {
-          alert('点字ブロックは設置されていません。');
-        }
-        con.classList.remove('show');
-      }
+//        let con = document.getElementById('contextmenu'); 
+//        var scene = viewer.scene;
+//        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+//        var pickedObject;
+//        var position;
+//        handler.setInputAction(
+//          function(click) {
+//            pickedObject = scene.pick(click.position);
+//            position = scene.pickPosition(click.position);
+//            console.log(`position=${position}`);
+
+//            if (Cesium.defined(pickedObject) && (pickedObject.id)) {
+//              console.log(`pickedObject.id.id=${pickedObject.id.id}`);
+
+// //            var ellipsoid = viewer.scene.globe.ellipsoid;
+// //            var cartesian = viewer.camera.pickEllipsoid(movement.endPosition, ellipsoid);
+// //            var longitudeString;
+// //            var latitudeString;
+// //            if (cartesian) {
+// //              var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+// //              longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(0);
+// //              latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(0);
+// //            }
+// //            console.log(`longitudeString=${longitudeString}`);
+// //            console.log(`latitudeString=${latitudeString}`);
+// //            if ((longitudeString == lon[0] && latitudeString == lat[0]) ||
+// //                 (longitudeString == lon[1] && latitudeString == lat[1])) { //マウスが点字ブロック設置可能場所にあることを判定
+// //              con.style.left = lon + 'px';
+// //              con.style.top = lat + 'px';
+//              con.classList.add('show');
+//            } //else {
+// //              con.classList.remove('show');
+// //            }
+//          }, Cesium.ScreenSpaceEventType.LEFT_DOWN //左ボタンダウンイベント
+//        );
+      
+//       // 点字ブロック設置
+//       var entity;
+//       var entityId = undefined;
+//       console.log(`entityId=${entityId}`);
+//       function menu1(){
+//         if (!Cesium.defined(viewer.entities.getById(entityId))) { 
+//           entity = viewer.entities.add({
+//           id : pickedObject.id.id,
+//           description : '点字ブロック',
+//           position : position,
+//           model : {
+//             uri : './SampleData/models/CesiumAir/Cesium_Air.glb',
+//             minimumPixelSize : 128,
+//             maximumScale : 200000
+//           },
+// //           point : {
+// //                 pixelSize : 30, //ポイントのサイズ
+// //                 color : Cesium.Color.RED //ポイントの色
+// //               },
+// //           billboard : {
+// //                         image : "./SampleData/cesium_stripes.png",
+// //                         scale : 0.2
+// //           },
+//           });
+//           entityId = entity.id;
+//         } else {
+//           alert('点字ブロックはすでに設置されています。');
+//         }
+//         con.classList.remove('show');
+//       }
+      
+//       // 点字ブロック撤去
+//       function menu2(){
+//         if (entityId == pickedObject.id.id) {
+//           viewer.entities.remove(entity);
+//           entityId = undefined;
+//         } else {
+//           alert('点字ブロックは設置されていません。');
+//         }
+//         con.classList.remove('show');
+//       }
       
 
       
