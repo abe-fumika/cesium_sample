@@ -135,7 +135,7 @@
       // 点字ブロック設置
       var entity = undefined;
       function menu1(){
-        if (entity == undefined) { 
+        if (entity == undefined && pickedObject.id.id == entity.name) { 
           entity = viewer.entities.add({
           name : pickedObject.id.id,
           description : '点字ブロック',
