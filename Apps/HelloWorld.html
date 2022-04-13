@@ -32,7 +32,6 @@
       #chart {
         position: relative;
         height: 100vh; /* 全画面表示 */
-        background: '#ff0000'; /* Background color for the chart area. If you want to set background with css, use .apexcharts-canvas to set it. */
       }
     </style>
   </head>
@@ -52,7 +51,15 @@
       document.querySelector('#graph-display').onclick = function() {
         var options = {
           chart: {
-            type: 'line'
+            type: 'line',
+            shadow: {
+              enabled: true,
+              color: '#000',
+              top: 18,
+              left: 7,
+              blur: 10,
+              opacity: 1
+            },
           },
           series: [{
             name: 'sales',
