@@ -43,28 +43,7 @@
     <script>
       var viewer = new Cesium.Viewer("cesiumContainer");
      
-//       const btn = document.querySelector('#graph-display');
-//       btn.addEventListener('click', () => {
-//         var options = {
-//           chart: {
-//             type: 'line'
-//           },
-//           series: [{
-//             name: 'sales',
-//             data: [30,40,35,50,49,60,70,91,125]
-//           }],
-//           xaxis: {
-//             categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-//           }
-//         }
-
-//         var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-//         chart.render();
-//         alert('クリックされました');
-//       })
-      
-      document.querySelector('#graph-display').disabled = false;
+      document.querySelector('#graph-display').disabled = false; //ボタン有効
       document.querySelector('#graph-display').onclick = function() {
         var options = {
           chart: {
