@@ -37,7 +37,7 @@
         animation-duration: 5s;
         animation-iteration-count: 1;
         transition: 5s; */
-        animation: chartright 4s ease 0s infinite normal;
+        animation: chartright 4s ease 0s 2 normal; /* infinite× */
       }
       @keyframes chartright {
         from {
@@ -95,7 +95,6 @@
             ],
             labels: ['April', 'May', 'June', 'July', 'August', 'September']
           }
-          document.querySelector("#chart");
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
           document.querySelector('#graph-display').innerText = "グラフ非表示";
