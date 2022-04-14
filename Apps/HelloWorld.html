@@ -54,6 +54,7 @@
         if (typeof chart !== 'undefined' && chart) { //グラフ消す
           chart.destroy();
           chart = undefined;
+          document.querySelector('#graph-display').innerText = "グラフ表示";
         } else {
           var options = {
             chart: {
@@ -73,6 +74,7 @@
 
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
+          document.querySelector('#graph-display').innerText = "グラフ非表示";
         }
       };
       
