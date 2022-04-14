@@ -75,7 +75,7 @@
             chart: {
               height: '25%',
               width: '25%',
-              type: 'radar',
+              type: 'line',
               background: '#fff',
               animations: {
                 enabled: false
@@ -83,11 +83,12 @@
             },
             series: [
               {
-                name: "Radar Series 1",
+                name: "line",
+                type: 'line',
                 data: [45, 52, 38, 24, 33, 10]
               },
               {
-                name: "Radar Series 2",
+                name: "column",
                 type: 'column',
                 data: [26, 21, 20, 6, 8, 15]
               }
