@@ -75,7 +75,7 @@
             chart: {
               height: '25%',
               width: '25%',
-              type: 'line',
+              type: 'line', //radar
               background: '#fff',
               animations: {
                 enabled: false
@@ -95,7 +95,7 @@
             ],
             labels: ['April', 'May', 'June', 'July', 'August', 'September']
           }
-
+          document.querySelector("#chart");
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
           document.querySelector('#graph-display').innerText = "グラフ非表示";
