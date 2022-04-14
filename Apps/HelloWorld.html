@@ -49,6 +49,7 @@
       var viewer = new Cesium.Viewer("cesiumContainer");
      
       document.querySelector('#graph-display').disabled = false; //ボタン有効
+      var chart;
       document.querySelector('#graph-display').onclick = function() {
         if (typeof chart !== 'undefined' && chart) {
           console.log('グラフ消す');
@@ -70,7 +71,7 @@
           }
         }
 
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
       };
       
