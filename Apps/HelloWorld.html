@@ -68,7 +68,9 @@
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
-//         chart.destroy();
+        if (typeof chart !== 'undefined' && chart) {
+          chart.destroy();
+        }
       };
       
               
