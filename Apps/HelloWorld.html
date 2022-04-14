@@ -37,7 +37,7 @@
         animation-duration: 5s;
         animation-iteration-count: 1;
         transition: 5s; */
-        animation: chartright 4s ease 0s 2 normal; /* infinite× */
+        animation: chartright 4s ease 0s infinite normal; /* infinite× */
       }
       @keyframes chartright {
         from {
@@ -83,7 +83,7 @@
             },
             series: [
               {
-                name: "line",
+                name: "ライン",
                 type: 'line',
                 data: [45, 52, 38, 24, 33, 10]
               },
@@ -93,7 +93,7 @@
                 data: [26, 21, 20, 6, 8, 15]
               }
             ],
-            labels: ['April', 'May', 'June', 'July', 'August', 'September']
+            labels: ['4月', 'May', 'June', 'July', 'August', 'September']
           }
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
