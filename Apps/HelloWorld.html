@@ -75,18 +75,23 @@
             chart: {
               height: '25%',
               width: '25%',
-              type: 'line',
+              type: 'radar',
               background: '#fff',
               animations: {
                 enabled: false
               }
             },
-            series: [{
-              name: 'sales',
-              data: [30,40,35,50,49,60,70,91,125]
-            }],
-            xaxis: {
-              categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+            series: [
+              {
+                name: "Radar Series 1",
+                data: [45, 52, 38, 24, 33, 10]
+              },
+              {
+                name: "Radar Series 2",
+                data: [26, 21, 20, 6, 8, 15]
+              }
+            ],
+            labels: ['April', 'May', 'June', 'July', 'August', 'September']
             }
           }
 
