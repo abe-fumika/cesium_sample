@@ -113,7 +113,19 @@
           chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
           document.querySelector('#graph-display').innerText = "グラフ非表示";
-        }
+          
+          let start = Date.now();
+          const chart_graph = document.querySelector('#chart');
+
+          let timer = setInterval(function() {
+            let timePassed = Date.now() - start;
+
+            chart_graph.style.left = timePassed / 5 + 'px';
+
+            if (timePassed > 2000) clearInterval(timer);
+
+            }, 20);
+          }
       };
       
               
