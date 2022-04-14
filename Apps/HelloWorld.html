@@ -50,6 +50,10 @@
      
       document.querySelector('#graph-display').disabled = false; //ボタン有効
       document.querySelector('#graph-display').onclick = function() {
+        if (typeof chart !== 'undefined' && chart) {
+          console.log('グラフ消す');
+          chart.destroy();
+        }
         var options = {
           chart: {
             height: '25%',
@@ -68,9 +72,6 @@
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
-        if (typeof chart !== 'undefined' && chart) {
-          chart.destroy();
-        }
       };
       
               
