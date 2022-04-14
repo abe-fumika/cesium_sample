@@ -95,9 +95,6 @@
           }
 
           chart = new ApexCharts(document.querySelector("#chart"), options);
-          chart = chart.appendData([{
-            data: [32, 44, 31, 41, 22, 50]
-          }]);
           chart.render();
           document.querySelector('#graph-display').innerText = "グラフ非表示";
         }
