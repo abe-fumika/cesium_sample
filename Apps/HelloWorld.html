@@ -121,8 +121,9 @@
             let timePassed = Date.now() - start;
 
             chart_graph.style.left = timePassed / 5 + 'px';
+            chart_graph.style.top = timePassed / 5 + 'px';
 
-            if (timePassed > 100) clearInterval(timer);
+            if (timePassed > 500) clearInterval(timer);
 
             }, 20);
           }
