@@ -33,6 +33,19 @@
         position: relative;
         top: 30px;
         left: 30px;
+        animation-name: chartright;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+      }
+      @keyframes chartright {
+        from {
+          opacity: 0;
+          transform: translateX(0);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(150px);
+        }
       }
     </style>
   </head>
