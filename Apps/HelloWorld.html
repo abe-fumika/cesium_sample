@@ -111,7 +111,7 @@
             labels: ['4月', 'May', 'June', 'July', 'August', 'September']
           }
           chart = new ApexCharts(document.querySelector("#chart"), options);
-          chart.render();
+//           chart.render();
           document.querySelector('#graph-display').innerText = "グラフ非表示";
           
           let start = Date.now();
@@ -125,6 +125,7 @@
             if (timePassed > 2000) clearInterval(timer);
 
             }, 20);
+          chart.render();
           }
       };
       
