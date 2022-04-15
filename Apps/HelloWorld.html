@@ -13,7 +13,7 @@
     <title>Hello World!</title>
     <script src="../Build/Cesium/Cesium.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <link rel="stylesheet" href="./Build/Cesium/Widgets/chart_sample.css">
+<!--     <link rel="stylesheet" href="./Build/Cesium/Widgets/chart_sample.css"> -->
     <style>
       @import url(../Build/Cesium/Widgets/widgets.css);
       html,
@@ -31,6 +31,26 @@
       }
       #toolbar { z-index: 1; position: fixed; top: 5px; left: 5px; }
 /*       @import url(../Build/Cesium/Widgets/chart_sample.css); */
+      #chart {
+        position: relative;
+        top: 30px;
+/*         left: 30px; */
+/*         animation-name: chartright;
+        animation-duration: 5s;
+        animation-iteration-count: 1;
+        transition: 5s; */
+/*         animation: chartright 4s ease 0s infinite normal; /* infinite~ */ */
+      }
+/*       @keyframes chartright {
+        from {
+          opacity: 0;
+          transform: translateY(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      } */
     </style>
   </head>
   <body>
